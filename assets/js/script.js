@@ -16,7 +16,7 @@ var getWeatherForcast = function() {
     var cityName = userEnteredCity.value.trim();
     cityNameDateEl.textContent = cityName;
     console.log(cityName);  
-     apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
+     apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&exclude=hourly&appid=" + apiKey;
      console.log(apiUrl)
     
      // fetch 
@@ -35,7 +35,6 @@ var getWeatherForcast = function() {
     
 };
 console.log(apiUrl)
-getWeatherForcast();
 
 searchBtn.addEventListener("click", getWeatherForcast);
 
