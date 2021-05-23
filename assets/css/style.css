@@ -1,0 +1,52 @@
+:root {
+    --searchBtnBlu: #1e90ff;
+    --white: #ffffff;
+  }
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+#grad {
+    height: 100px;
+    text-align: center;
+    padding-top: 20px;
+    color: var(--white);
+    background-color: blue; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, rgb(62, 138, 218) , rgb(48, 0, 125));
+  }
+
+input {
+    border-radius: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.search {
+   border-bottom: 3px solid darkgray;
+   padding-bottom: 10px;
+}
+.searchBtn {
+    background-color: var(--searchBtnBlu) ;
+    color: var(--white);
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+.searchBtn:hover {
+    background-color: rgb(48, 0, 125)
+}
+.historyBtn {
+    margin-top: 10px;
+    background-color: darkgray ;
+    color: black;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+.historyBtn:hover {
+    background-color: rgb(48, 0, 125);
+    color: var(--white);
+}
