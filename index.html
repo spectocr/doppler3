@@ -14,7 +14,7 @@
     </header>
     <main>
         <div class="weatherInfoContainer row">
-            <div class="searchAndHistoryContainer col-3">
+            <div class="searchAndHistoryContainer col-4"> <!--begin left column-->
                 <div class="search">
                     <h3>Search for a City:</h3>
                     <input type="text" placeholder="Ex. New York" id="userEnteredCity">
@@ -26,10 +26,66 @@
                     <button class="historyBtn">test</button>
                     <button class="historyBtn">test</button>
                     <button class="historyBtn">test</button>
-
                 </div>
-            </div>
-        </div>
+            </div><!--end left column-->
+            <div class="currentAndForcast col-8"><!--begin right column-->
+                <div class="currentWeather">
+                    <span class="cityNameDate">test</span>
+                </div>
+                <div class="fiveDayForcast">
+                <h3 id="fiveday">5-Day Forecast:</h3>
+                    <div class="card-deck">
+                        <div class="card">
+                            <div class="card-body" id="dayOne">
+                                <h4 class="card-title">Sample Date</h4>
+                                <span id="weatherIcon"></span>
+                                <span id="temp"></span>
+                                <span id="wind"></span>
+                                <span id="humidity"></span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="dayTwo">
+                                <h4 class="card-title">Sample Date</h4>
+                                <span id="weatherIcon"></span>
+                                <span id="temp"></span>
+                                <span id="wind"></span>
+                                <span id="humidity"></span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="dayThree">
+                                <h4 class="card-title">Sample Date</h4>
+                                <span id="weatherIcon"></span>
+                                <span id="temp"></span>
+                                <span id="wind"></span>
+                                <span id="humidity"></span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="dayFour">
+                                <h4 class="card-title">Sample Date</h4>
+                                <span id="weatherIcon"></span>
+                                <span id="temp"></span>
+                                <span id="wind"></span>
+                                <span id="humidity"></span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="dayFive">
+                                <h4 class="card-title">Sample Date</h4>
+                                <span id="weatherIcon"></span>
+                                <span id="temp"></span>
+                                <span id="wind"></span>
+                                <span id="humidity"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div><!--end right column-->
+        </div> <!-- end row-->
     </main>
     <script src="./assets/js/script.js"></script>
 </body>
