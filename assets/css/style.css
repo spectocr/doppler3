@@ -89,12 +89,12 @@ input {
 .yellow {
     background-color: yellow;
     border-radius: 5px;
-    color: var(--white);
+    color: black;
     padding: 5px;
 }
 
 .orange {
-    background-color: orange;
+    background-color: rgba(255, 166, 0, 0.564);
     border-radius: 5px;
     color: var(--white);
     padding: 5px;

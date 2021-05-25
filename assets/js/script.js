@@ -1,6 +1,6 @@
 //queryselectors
 var userEnteredCity = document.querySelector("#userEnteredCity");
-console.log(userEnteredCity);
+//console.log(userEnteredCity);
 var searchBtn = document.querySelector(".searchBtn");
 var cityNameDateEl = document.querySelector(".cityNameDate");
 var currentWeatherIcon = document.getElementById('iconCD');
@@ -24,7 +24,7 @@ var getWeatherForcast = function () {
     cityName = "";
     
     cityName = userEnteredCity.value.trim();
-    console.log(cityName);
+    //.log(cityName);
     apiUrl1 = "";
     apiUrl2 = "";
     //lat = " ";
@@ -112,13 +112,6 @@ function drawWeather(data) {
         var weatherForcastTempi = "temp" + [i];
         var weatherForcastWindi = "wind" + [i];
         var weatherForcastHumidityi = "humidity" + [i];
-        console.log(weatherForcastIconi);
-        //console.log(weatherForcastIconi);
-        //console.log(weatherForcastTempi);
-       // console.log(weatherForcastWindi);
-       // console.log(weatherForcastHumidityi);
-       // console.log(datei);
-       //var forcasticon = document.getElementById(weatherForcastIconi);
        var forcastWeatherIcon = document.getElementById(weatherForcastIconi);
        var icon2 = data.daily[i].weather[0].icon;
        var iconUrl2 = "http://openweathermap.org/img/wn/" + icon2 + "@2x.png";
@@ -135,7 +128,6 @@ function drawWeather(data) {
         
         document.getElementById(weatherForcastDayi).innerHTML = datei;
         document.getElementById(weatherForcastTempi).innerHTML = "Temp: " + fahrenheitForcasti + '&deg; F';
-        //document.getElementById(weatherForcastDayi).innerHTML = date1;
         document.getElementById(weatherForcastWindi).innerHTML = "Wind: " + windForcasti + " MPH";
         document.getElementById(weatherForcastHumidityi).innerHTML = "Humidity: " + humidityForcasti + "&percnt;";
 
@@ -151,18 +143,10 @@ function drawWeather(data) {
         document.getElementById('location').innerHTML = cityName + " (" + date1 + ")";
         document.getElementById('wind').innerHTML = "Wind: " + data.current.wind_speed + " MPH";
         document.getElementById('humidity').innerHTML = "Humidity: " + data.current.humidity + "&percnt;";
-
-        //console.log(date2[0]);
-        //console.log(date1);
-       // console.log(temp1);
-        //console.log(wind1);
-        //console.log(humidity1);
-       // console.log(iconUrl);
-
-        
         userEnteredCity.value = "";
         cityName.value = "";
     };
+
     // current weather info and icon only.
     var icon = data.current.weather[0].icon;
     var iconUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
@@ -179,7 +163,7 @@ function drawWeather(data) {
     document.getElementById('wind').innerHTML = "Wind: " + data.current.wind_speed + " MPH";
     document.getElementById('humidity').innerHTML = "Humidity: " + data.current.humidity + "&percnt;";
     document.getElementById('uvIndex').innerHTML = data.current.uvi;
-    console.log(data.current.uvi);
+    //console.log(data.current.uvi);
     if (data.current.uvi <= 2) {
         document.getElementById('uvIndex').setAttribute("class", "green");
     } else if (data.current.uvi <= 3.00) {
