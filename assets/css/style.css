@@ -80,3 +80,30 @@ input {
     margin-bottom: 5px;
 }
 
+.green {
+    background-color: green;
+    border-radius: 5px;
+    color: var(--white);
+    padding: 5px;
+}
+.yellow {
+    background-color: yellow;
+    border-radius: 5px;
+    color: var(--white);
+    padding: 5px;
+}
+
+.orange {
+    background-color: orange;
+    border-radius: 5px;
+    color: var(--white);
+    padding: 5px;
+}
+
+.red {
+    background-color: red;
+    border-radius: 5px;
+    color: var(--white);
+    padding: 5px;
+}
+
