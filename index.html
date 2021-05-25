@@ -30,7 +30,14 @@
             </div><!--end left column-->
             <div class="currentAndForcast col-8"><!--begin right column-->
                 <div class="currentWeather">
-                    <span class="cityNameDate">test</span>
+                    <h3 id="location"></h3><span id="iconCD"></span>
+                    <div id="weather">
+                        <div id="description"></div>
+                        <div id="temp" class="weatherItem"></div>
+                        <div id="wind" class="weatherItem"></div>
+                        <div id="humidity" class="weatherItem"></div>
+                        <div id="uvIndex" class="weatherItem"></div>
+                    </div>
                 </div>
                 <div class="fiveDayForcast">
                 <h3 id="fiveday">5-Day Forecast:</h3>
@@ -38,46 +45,46 @@
                         <div class="card">
                             <div class="card-body" id="dayOne">
                                 <h4 class="card-title">Sample Date</h4>
-                                <span id="weatherIcon"></span>
-                                <span id="temp"></span>
-                                <span id="wind"></span>
-                                <span id="humidity"></span>
+                                <span id="weatherIcon1"></span>
+                                <span id="temp1"></span>
+                                <span id="wind1"></span>
+                                <span id="humidity1"></span>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body" id="dayTwo">
                                 <h4 class="card-title">Sample Date</h4>
-                                <span id="weatherIcon"></span>
-                                <span id="temp"></span>
-                                <span id="wind"></span>
-                                <span id="humidity"></span>
+                                <span id="weatherIcon2"></span>
+                                <span id="temp2"></span>
+                                <span id="wind2"></span>
+                                <span id="humidity2"></span>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body" id="dayThree">
                                 <h4 class="card-title">Sample Date</h4>
-                                <span id="weatherIcon"></span>
-                                <span id="temp"></span>
-                                <span id="wind"></span>
-                                <span id="humidity"></span>
+                                <span id="weatherIcon3"></span>
+                                <span id="temp3"></span>
+                                <span id="wind3"></span>
+                                <span id="humidity3"></span>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body" id="dayFour">
                                 <h4 class="card-title">Sample Date</h4>
-                                <span id="weatherIcon"></span>
-                                <span id="temp"></span>
-                                <span id="wind"></span>
-                                <span id="humidity"></span>
+                                <span id="weatherIcon4"></span>
+                                <span id="temp4"></span>
+                                <span id="wind4"></span>
+                                <span id="humidity4"></span>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body" id="dayFive">
                                 <h4 class="card-title">Sample Date</h4>
-                                <span id="weatherIcon"></span>
-                                <span id="temp"></span>
-                                <span id="wind"></span>
-                                <span id="humidity"></span>
+                                <span id="weatherIcon5"></span>
+                                <span id="temp5"></span>
+                                <span id="wind5"></span>
+                                <span id="humidity5"></span>
                             </div>
                         </div>
                     </div>
@@ -87,6 +94,7 @@
             </div><!--end right column-->
         </div> <!-- end row-->
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

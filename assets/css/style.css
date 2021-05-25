@@ -61,6 +61,8 @@ input {
     border: 1px solid black;
     width: 100%;
     padding-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 8px;
 }
 #fiveday {
     font-weight: bold;
@@ -74,3 +76,7 @@ input {
 .card-body h4 {
     font-size: small;
 }
+.weatherItem {
+    margin-bottom: 5px;
+}
+
