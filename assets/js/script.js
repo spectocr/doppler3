@@ -22,7 +22,6 @@ var lon = "";
 var getWeatherForcast = function () {
     //fetch 1
     cityName = "";
-    
     cityName = userEnteredCity.value.trim();
     //.log(cityName);
     apiUrl1 = "";
@@ -42,6 +41,15 @@ var getWeatherForcast = function () {
                 lat = data.coord.lat;
                 lon = data.coord.lon;
                 cityName = data.name;
+                /*
+                var cityHistory = function() {
+                    var cityHistoryi = "";
+                    for (var i = 0; i < 6; i++) {
+                        cityHistoryi = "City:" + [i] + ":" + cityName;
+                    }
+                   
+
+                }; */
                 //console.log(data);
                 //console.log(lat);
                // console.log(lon);
