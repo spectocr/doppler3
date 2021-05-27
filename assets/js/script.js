@@ -8,6 +8,7 @@ var currentTemp = document.getElementById('temp');
 var currentLocation = document.getElementById('location');
 var currentWind = document.getElementById('wind');
 var currentHumidity = document.getElementById('humidity');
+var cityHistory = JSON.parse(localStorage.getItem("history")) || [];
 
 
 //build them varies
@@ -23,11 +24,9 @@ var getWeatherForcast = function () {
     //fetch 1
     cityName = "";
     cityName = userEnteredCity.value.trim();
-    //.log(cityName);
     apiUrl1 = "";
     apiUrl2 = "";
-    //lat = " ";
-    //lon = " ";
+
     
     apiUrl1 = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
 
@@ -41,6 +40,9 @@ var getWeatherForcast = function () {
                 lat = data.coord.lat;
                 lon = data.coord.lon;
                 cityName = data.name;
+                cityHistory.push(cityName);
+                localStorage.setItem("history", JSON.stringify(cityHistory));
+                hisGen(cityName);
                 /*
                 var cityHistory = function() {
                     var cityHistoryi = "";
@@ -50,12 +52,7 @@ var getWeatherForcast = function () {
                    
 
                 }; */
-                //console.log(data);
-                //console.log(lat);
-               // console.log(lon);
-                for (var i = 0; i < data.length; i++) {
-                    localStorage.setItem("cityName" + i, cityName);
-                }
+
                 apiUrl2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly" + cityName + "&appid=" + apiKey;
                 //console.log(apiUrl2)
 
@@ -80,6 +77,13 @@ var getWeatherForcast = function () {
         }
     });
 };
+
+function hisGen(searchVal) {
+    var hisBtn = document.createElement("button");
+    hisBtn.setAttribute("class", "historyBtn");
+    hisBtn.textContent = searchVal;
+    //hisBtn.addEventListener("click", getWeatherForcast(searchVal));
+}
 
 
 function drawWeather(data) {
@@ -123,7 +127,8 @@ function drawWeather(data) {
        var forcastWeatherIcon = document.getElementById(weatherForcastIconi);
        var icon2 = data.daily[i].weather[0].icon;
        var iconUrl2 = "http://openweathermap.org/img/wn/" + icon2 + "@2x.png";
-       
+       forcastWeatherIcon.innerHTML = "";
+
         var forcastWeatherIconChild = document.createElement("IMG");
          forcastWeatherIconChild.setAttribute("src", iconUrl2);
           forcastWeatherIconChild.setAttribute("width", "30");
