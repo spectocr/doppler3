@@ -9,12 +9,31 @@ var currentLocation = document.getElementById('location');
 var currentWind = document.getElementById('wind');
 var currentHumidity = document.getElementById('humidity');
 var cityHistory = JSON.parse(localStorage.getItem("history")) || [];
+var historyParent = document.querySelector(".history");
+
+
 
 
 //build them varies
 var apiKey = "1c631efa51faf50ecb47f29508debd1d";
 var apiUrl1 = "";
 var apiUrl2 = "";
+var lsRececivedData = localStorage.getItem("history");
+var lsRececivedData2 = JSON.parse(lsRececivedData) || 0;
+console.log(lsRececivedData2);
+
+
+for (var i = 0; i < lsRececivedData2.length; i++) {
+    console.log(lsRececivedData2[i]);
+    var hisBtn = document.createElement("button");
+    hisBtn.setAttribute("class", "historyBtn");
+    hisBtn.textContent = lsRececivedData2[i];
+    hisBtn.setAttribute("id", lsRececivedData2[i]);
+    //var hisBtn2 = document.getElementById(lsRececivedData2[i]);
+    //console.log(hisBtn2);
+    //hisBtn2.addEventListener("click", getWeatherForcast);
+    historyParent.appendChild(hisBtn);
+};
 //var userEnteredCity = "";
 var lat = "";
 var lon = "";
@@ -82,7 +101,8 @@ function hisGen(searchVal) {
     var hisBtn = document.createElement("button");
     hisBtn.setAttribute("class", "historyBtn");
     hisBtn.textContent = searchVal;
-    //hisBtn.addEventListener("click", getWeatherForcast(searchVal));
+    historyParent.appendChild(hisBtn);
+   // hisBtn.addEventListener("click", getWeatherForcast(searchVal));
 }
 
 
@@ -189,5 +209,4 @@ function drawWeather(data) {
 };
 
 searchBtn.addEventListener("click", getWeatherForcast);
-
-
+//hisBtn.addEventListener("click", getWeatherForcast);
