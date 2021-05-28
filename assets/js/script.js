@@ -69,13 +69,11 @@ var getWeatherForcast = function (cityName) {
 
 
 for (let i = 0; i < lsRececivedData2.length; i++) {
-    console.log(lsRececivedData2[i]);
     var hisBtn = document.createElement("button");
     hisBtn.setAttribute("class", "historyBtn");
     hisBtn.textContent = lsRececivedData2[i];
     hisBtn.setAttribute("id", lsRececivedData2[i]);
     hisBtn.addEventListener("click", function() {
-        console.log(lsRececivedData2[i]);
         getWeatherForcast(lsRececivedData2[i])
     });
     historyParent.appendChild(hisBtn);
