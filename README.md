@@ -18,4 +18,4 @@ HTML, Javascript, CSS
 **Cris Spector**
 
 
-![bootcamper](./asssets/images/ss.png)
+![bootcamper](./ss.png)
