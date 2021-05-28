@@ -1,6 +1,5 @@
 //queryselectors
 var userEnteredCity = document.querySelector("#userEnteredCity");
-//console.log(userEnteredCity);
 var searchBtn = document.querySelector(".searchBtn");
 var cityNameDateEl = document.querySelector(".cityNameDate");
 var currentWeatherIcon = document.getElementById('iconCD');
@@ -20,11 +19,6 @@ var apiUrl1 = "";
 var apiUrl2 = "";
 var lsRececivedData = localStorage.getItem("history");
 var lsRececivedData2 = JSON.parse(lsRececivedData) || 0;
-console.log(lsRececivedData2);
-
-
-
-//var userEnteredCity = "";
 var lat = "";
 var lon = "";
 
@@ -50,27 +44,16 @@ var getWeatherForcast = function (cityName) {
                 cityName = data.name;
                 cityHistory.push(cityName);
                 localStorage.setItem("history", JSON.stringify(cityHistory));
-                /*
-                var cityHistory = function() {
-                    var cityHistoryi = "";
-                    for (var i = 0; i < 6; i++) {
-                        cityHistoryi = "City:" + [i] + ":" + cityName;
-                    }
-                   
 
-                }; */
 
                 apiUrl2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly" + cityName + "&appid=" + apiKey;
-                //console.log(apiUrl2)
+
 
                 // fetch 2
 
                 fetch(apiUrl2).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
-                            //console.log(data);
-                            
-                            //console.log(data);
                             drawWeather(data, cityName);
                         });
                     } else {
@@ -78,7 +61,6 @@ var getWeatherForcast = function (cityName) {
                     }
                 });
             });
-            //console.log(response);
         } else {
             alert('Error: City not found');
         }
@@ -92,8 +74,6 @@ for (let i = 0; i < lsRececivedData2.length; i++) {
     hisBtn.setAttribute("class", "historyBtn");
     hisBtn.textContent = lsRececivedData2[i];
     hisBtn.setAttribute("id", lsRececivedData2[i]);
-    //var hisBtn2 = document.getElementById(lsRececivedData2[i]);
-    //console.log(hisBtn2);
     hisBtn.addEventListener("click", function() {
         console.log(lsRececivedData2[i]);
         getWeatherForcast(lsRececivedData2[i])
@@ -114,9 +94,7 @@ function hisGen(searchVal) {
 
 
 function drawWeather(data, cityName) {
-    //var celcius = Math.round(parseFloat(data.main.temp)-273.15);
     var fahrenheit = Math.round(((parseFloat(data.current.temp) - 273.15) * 1.8) + 32);
-    //var dateFromOW = moment().format("MMM Do, YYYY");
 
     currentTemp = "";
     currentLocation = "";
@@ -126,7 +104,6 @@ function drawWeather(data, cityName) {
 
     for (var i = 1; i < 6; i++) {
         var date1 = data.current.dt;
-        //var date2 = data.list[i].dt_txt//.split(' ');
         date1 = new Date(date1 * 1000);
         month = date1.getMonth() + 1;
         day = date1.getDate();
@@ -134,7 +111,6 @@ function drawWeather(data, cityName) {
         date1 = month + "/" + day + "/" + year;
 
         var datei = data.daily[i].dt;
-        //var date2 = data.list[i].dt_txt//.split(' ');
         datei = new Date(datei * 1000);
         month = datei.getMonth() + 1;
         day = datei.getDate();
@@ -219,4 +195,3 @@ searchBtn.addEventListener("click", function() {
     getWeatherForcast(userEnteredCity.value.trim());
     hisGen(userEnteredCity.value.trim());
 });
-//hisBtn.addEventListener("click", getWeatherForcast);
