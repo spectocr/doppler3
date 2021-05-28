@@ -163,7 +163,7 @@ function drawWeather(data, cityName) {
 
     // current weather info and icon only.
     var icon = data.current.weather[0].icon;
-    var iconUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+    var iconUrl = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
     currentWeatherIcon.innerHTML = "";
     var currentWeatherIconChild = document.createElement("IMG");
     currentWeatherIconChild.setAttribute("src", iconUrl);
