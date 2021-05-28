@@ -129,7 +129,7 @@ function drawWeather(data, cityName) {
         var weatherForcastHumidityi = "humidity" + [i];
        var forcastWeatherIcon = document.getElementById(weatherForcastIconi);
        var icon2 = data.daily[i].weather[0].icon;
-       var iconUrl2 = "http://openweathermap.org/img/wn/" + icon2 + "@2x.png";
+       var iconUrl2 = "https://openweathermap.org/img/wn/" + icon2 + "@2x.png";
        forcastWeatherIcon.innerHTML = "";
 
         var forcastWeatherIconChild = document.createElement("IMG");
@@ -148,7 +148,7 @@ function drawWeather(data, cityName) {
         document.getElementById(weatherForcastHumidityi).innerHTML = "Humidity: " + humidityForcasti + "&percnt;";
 
         var icon = data.daily[i].weather[0].icon;
-        var iconUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+        var iconUrl = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
 
         var temp1 = data.daily[i].temp.max;
