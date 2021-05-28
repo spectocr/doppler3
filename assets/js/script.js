@@ -23,26 +23,15 @@ var lsRececivedData2 = JSON.parse(lsRececivedData) || 0;
 console.log(lsRececivedData2);
 
 
-for (var i = 0; i < lsRececivedData2.length; i++) {
-    console.log(lsRececivedData2[i]);
-    var hisBtn = document.createElement("button");
-    hisBtn.setAttribute("class", "historyBtn");
-    hisBtn.textContent = lsRececivedData2[i];
-    hisBtn.setAttribute("id", lsRececivedData2[i]);
-    //var hisBtn2 = document.getElementById(lsRececivedData2[i]);
-    //console.log(hisBtn2);
-    //hisBtn2.addEventListener("click", getWeatherForcast);
-    historyParent.appendChild(hisBtn);
-};
+
 //var userEnteredCity = "";
 var lat = "";
 var lon = "";
 
 //build API Call
-var getWeatherForcast = function () {
+var getWeatherForcast = function (cityName) {
     //fetch 1
-    cityName = "";
-    cityName = userEnteredCity.value.trim();
+    
     apiUrl1 = "";
     apiUrl2 = "";
 
@@ -61,7 +50,6 @@ var getWeatherForcast = function () {
                 cityName = data.name;
                 cityHistory.push(cityName);
                 localStorage.setItem("history", JSON.stringify(cityHistory));
-                hisGen(cityName);
                 /*
                 var cityHistory = function() {
                     var cityHistoryi = "";
@@ -83,7 +71,7 @@ var getWeatherForcast = function () {
                             //console.log(data);
                             
                             //console.log(data);
-                            drawWeather(data);
+                            drawWeather(data, cityName);
                         });
                     } else {
                         alert('Error: City not found');
@@ -97,16 +85,35 @@ var getWeatherForcast = function () {
     });
 };
 
+
+for (let i = 0; i < lsRececivedData2.length; i++) {
+    console.log(lsRececivedData2[i]);
+    var hisBtn = document.createElement("button");
+    hisBtn.setAttribute("class", "historyBtn");
+    hisBtn.textContent = lsRececivedData2[i];
+    hisBtn.setAttribute("id", lsRececivedData2[i]);
+    //var hisBtn2 = document.getElementById(lsRececivedData2[i]);
+    //console.log(hisBtn2);
+    hisBtn.addEventListener("click", function() {
+        console.log(lsRececivedData2[i]);
+        getWeatherForcast(lsRececivedData2[i])
+    });
+    historyParent.appendChild(hisBtn);
+};
+
 function hisGen(searchVal) {
     var hisBtn = document.createElement("button");
     hisBtn.setAttribute("class", "historyBtn");
     hisBtn.textContent = searchVal;
     historyParent.appendChild(hisBtn);
-   // hisBtn.addEventListener("click", getWeatherForcast(searchVal));
-}
+   hisBtn.addEventListener("click", function() {
+    getWeatherForcast(searchVal);
+   })
+   
+};
 
 
-function drawWeather(data) {
+function drawWeather(data, cityName) {
     //var celcius = Math.round(parseFloat(data.main.temp)-273.15);
     var fahrenheit = Math.round(((parseFloat(data.current.temp) - 273.15) * 1.8) + 32);
     //var dateFromOW = moment().format("MMM Do, YYYY");
@@ -208,5 +215,8 @@ function drawWeather(data) {
     }
 };
 
-searchBtn.addEventListener("click", getWeatherForcast);
+searchBtn.addEventListener("click", function() {
+    getWeatherForcast(userEnteredCity.value.trim());
+    hisGen(userEnteredCity.value.trim());
+});
 //hisBtn.addEventListener("click", getWeatherForcast);

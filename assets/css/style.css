@@ -19,6 +19,7 @@ box-sizing: border-box;
   }
   h3 {
       font-size: x-large;
+      display: inline-block;
   }
 
 input {
