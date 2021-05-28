@@ -36,7 +36,7 @@ var getWeatherForcast = function (cityName) {
     apiUrl2 = "";
 
     
-    apiUrl1 = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
+    apiUrl1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
 
     fetch(apiUrl1).then(function (response) {
 
